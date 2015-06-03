@@ -1,10 +1,10 @@
-This simple  Node.js IBM Bluemix application illustrates how to extend [Spiceworks Developer Edition](http://spiceworks.github.io/developers.spiceworks.com/downloads/) with a [Bluemix](https://bluemix.net)  application. This example use the Spiceworks Javascript API to pull Help Desk ticket data and then displays a summary of each ticket  in the Bluemix application.
+This simple  Node.js IBM Bluemix application illustrates how to extend [Spiceworks Developer Edition](http://spiceworks.github.io/developers.spiceworks.com/downloads/) with an [IBM Bluemix](https://console.ng.bluemix.net/?cm_mmc=IBMEcoDWW-_-IIC-_-BluemixDay-_-BluemixDayAAAWebpage)  application. This example use the Spiceworks Javascript API to pull Help Desk ticket data and then displays a summary of each ticket  in the Bluemix application.
 
 ## Automatic Deploy (and signup if necessary) to Bluemix
-Give it a try! Click the button below to fork into IBM DevOps Services and deploy your own copy of this application on Bluemix.
+Give it a try! Click the button below to fork into IBM DevOps Services and deploy your own copy of this application on Bluemix. Not signed up for  Bluemix already ? No worries, the 
+button below works for new Bluemix users as well as existing ones. 
+
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://hub.jazz.net/git/idsorg/sample-java-cloudant)
-
-
 
 
 ## Manual deploy (not necessary if you clicked on _Automatic Deploy_ above)
@@ -15,7 +15,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 2. Download and install the [Cloud-foundry CLI](https://github.com/cloudfoundry/cli/releases) tool
 
-3. Edit the `manifest.yml` file and change the `<application-name>` to something unique.
+3. After cloning this project locally, edit the `manifest.yml` file and change the `<application-name>` to something unique.
   ```none
   applications:
     name: <application-name>
@@ -36,8 +36,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
   $ cf push
   ```
  
-6. Access the running application using the URL <application-name>.mybluemix.net where `<application-name>` is the name you used in step 3. The welcome page will have instructions about integrating this app into Spiceworks Developer Edition
-
+6. Access the running application using the URL `<application-name>`.mybluemix.net where `<application-name>` is the name you used in step 3. The welcome page will have instructions about integrating this app into Spiceworks Developer Edition
 
 
 ## Deploy into Spiceworks Developer Edition

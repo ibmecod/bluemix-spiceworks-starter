@@ -1,0 +1,177 @@
+<!DOCTYPE html><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<html>
+  <head>
+    <link href='css/bootstrap.min.css' rel='stylesheet' type='text/css'>   
+    <link href='css/bootstrap-theme.min.css' rel='stylesheet'>
+	<link href='css/jquery.dataTables.min.css' rel='stylesheet'>
+	<link href='css/styles.css' rel='stylesheet'>
+
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <link href='images/favicon32.png' rel='icon' type='image/png'>
+     <title>IBM Bluemix Spiceworks Cloud Integration Demo</title>
+	
+	 <script src='js/jquery-1.11.1.min.js'></script>	
+	 <script src='js/jquery.dataTables.min.js'></script>
+	 <script src='js/jquery.blockUI.js'></script>
+     <script src='js/bootstrap.min.js'></script>
+	 <script src='js/moment.min.js'></script>
+	 <script src='js/spiceworks-sdk.js'></script>
+	 
+	 <script type="text/javascript">
+	 
+	 var formattedTicketData = [];
+	 var ticketTable;
+	 var card;
+
+	 
+	 function formatTicketData(data) {
+	    // Format Help Desk tickets from Spiceworks  API for jQuery DataTable
+		// DataTables take an array of arrays but The Spiceworks API returns an array of objects
+		// so some translation is needed. Uses the moment.js library (http://momentjs.com) to parse 
+		// and then format  the UTC timestamps in the Spiceworks data		
+		for (i = 0; i < data.length; i++) {
+		   formattedTicketData.push([data[i].id, data[i].priority, data[i].summary, data[i].status,
+		                         data[i].creator.first_name + ' ' +  data[i].creator.last_name, 
+								 moment(data[i].created_at).format('MMMM Do YYYY, h:mm a')]);
+		}
+	 
+	 }
+	 
+
+	 // jQuery page initialization
+	 $(document).ready(function() { 
+        // Use the BlockUI jQuery plugin to show a loading message until the SpiceWorks data has been retrieved
+		// css defaults for BlockUI plugin
+		$.blockUI.defaults.css = { 
+                      padding: 0,
+                      margin: 0,
+                      width: '30%',
+                      top: '40%',
+                      left: '35%',
+                      textAlign: 'center',
+                      cursor: 'wait'
+        };
+		 // make overlay more transparent 
+         //$.blockUI.defaults.overlayCSS.opacity = .18; 
+		 // Block UI with loading message
+		 $.blockUI({ message: $('#busy') });
+		 
+        // grab all the help desk tickets and display them in a jQuery dataTable
+        card = new SW.Card();		
+        card.services('helpdesk').request('tickets').then(function(data) {
+		    formatTicketData(data.tickets);
+			ticketTable = $('#tickets').dataTable({	       
+			   bLengthChange: false
+			});
+	        ticketTable.fnAddData(formattedTicketData);
+	        ticketTable.fnDraw();	
+			
+			// Unblock UI
+            $.unblockUI();			
+		});
+		
+		// Grab logged in user's name and stick in page header
+		card.services('environment').request('environment').then(function(data) {
+		    $('#users-name').text(data.user.first_name + ' ' + data.user.last_name);
+		});
+	
+     });
+	 
+	 
+	 
+	</script>
+	 
+   <body>
+    
+	   <div id="busy" style="display:none;">
+          <img src="images/ajax-loader.gif" />
+       </div>
+       
+       <div class='col-md-12'>
+     
+          <table class='table table-condensed' style='margin:0; padding:0'>
+            <tr>
+              <td align='left'>
+                 <img src='images/bmlogo.jpg' height='60' style='vertical-align:middle'/>
+				    <img src='images/spiceworks.png' />
+						<span class='title'>Integration Demo</span>
+              </td>
+			  <td align='right' style='vertical-align:middle'>
+			   <span style='font-weight:bold'>Welcome&nbsp;</span>
+               <span id='users-name' class='text-muted'></span>
+			  </td>
+		
+            </tr>
+          </table>
+ 
+      
+      </div>
+      
+        <div class='col-md-12'  style='margin-bottom: 20px'>
+          <hr style='margin:0; padding:0; border-color: #d4d4d4'></hr>
+        </div>
+   
+	 
+	 <div class='col-md-12'  style='margin-bottom: 20px'>
+    
+	  <p>This  Node.js IBM Bluemix application illustrates how to extend Spiceworks Developer Edition with a Bluemix  application. This example use the Spiceworks Javascript API
+	   to pull Help Desk ticket data and data about the current user  and then displays a summary of each ticket and the logged in user's name  in the Bluemix application.
+	   The Help Desk tickets are displayed using a jQuery DataTable. </p>	 
+     
+      </div>
+	 
+	  <div class='content-heading'>
+	   <h4>Help Desk Tickets from the Spiceworks API</h4>
+	   </div>
+	
+	 
+	 <div class="col-md-12" style='margin-bottom: 20px'>
+		  <table id="tickets" class="display">
+             <thead>
+             <tr>
+              <th width="5%">
+             ID
+             </th>
+			 <th width="10%">
+             Priority
+             </th>
+             <th width="40%">
+             Summary
+             </th>
+             <th width="10%">
+             Status
+             </th>
+             <th width="15%">
+             Created by
+             </th>
+            <th width="20%">
+             Date created
+             </th>
+           
+
+             </thead>
+             <tbody>
+             </tbody>
+             </table>
+		   </div>
+	 
+	
+	<div><p>&nbsp;</p></div>
+	<div class="col-md-12" >
+    
+	     <table width='100%'>
+		 <tr>
+		 <td width='50%' align='left' style='font-size: 0.85em' >
+         <p><a href="http://www.ibm.com/developerworks/topics/bluemix/">IBM Bluemix learning resources </a> </p>
+		</td>
+		
+	    <td width='50%' align="right" style='font-size: 0.75em' >
+        <p class="text-muted">&copy; 2015 IBM Corporation</p>
+		</td>
+		</tr>
+		</table>
+     
+    </div>
+	</body>
+	</html>

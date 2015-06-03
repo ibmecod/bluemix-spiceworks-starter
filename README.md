@@ -4,7 +4,7 @@ This simple  Node.js IBM Bluemix application illustrates how to extend [Spicewor
 Give it a try! Click the button below to fork into IBM DevOps Services and deploy your own copy of this application on Bluemix. Not signed up for  Bluemix already ? No worries, the 
 button below works for new Bluemix users as well as existing ones. 
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://hub.jazz.net/git/idsorg/sample-java-cloudant)
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/ibmecod/bluemix-spiceworks-starter)
 
 
 ## Manual deploy (not necessary if you clicked on _Automatic Deploy_ above)

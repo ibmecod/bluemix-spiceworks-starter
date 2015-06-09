@@ -1,4 +1,4 @@
-This simple  Node.js IBM Bluemix application illustrates how to extend [Spiceworks Developer Edition](http://spiceworks.github.io/developers.spiceworks.com/downloads/) with an [IBM Bluemix](https://console.ng.bluemix.net/?cm_mmc=IBMEcoDWW-_-IIC-_-BluemixDay-_-BluemixDayAAAWebpage)  application. This example use the Spiceworks Javascript API to pull Help Desk ticket data and then displays a summary of each ticket  in the Bluemix application.
+This simple  Node.js IBM Bluemix application illustrates how to extend [Spiceworks Developer Edition](http://spiceworks.github.io/developers.spiceworks.com/downloads/) with an [IBM Bluemix](https://console.ng.bluemix.net/?cm_mmc=IBMEcoDWW-_-IIC-_-BluemixDay-_-BluemixDayAAAWebpage)  application. This example uses the Spiceworks Javascript API to pull Help Desk ticket data and then displays a summary of each ticket  in the Bluemix application.
 
 ## Automatic Deploy (and signup if necessary) to Bluemix
 Give it a try! Click the button below  and follow the prompts to fork into IBM DevOps Services and deploy your own copy of this application on Bluemix. Not signed up for  Bluemix already ? No worries, the 

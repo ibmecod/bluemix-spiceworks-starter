@@ -1,10 +1,17 @@
 This simple  Node.js IBM Bluemix application illustrates how to extend [Spiceworks Developer Edition](http://spiceworks.github.io/developers.spiceworks.com/downloads/) with an [IBM Bluemix](https://console.ng.bluemix.net/?cm_mmc=IBMEcoDWW-_-IIC-_-BluemixDay-_-BluemixDayAAAWebpage)  application. This example use the Spiceworks Javascript API to pull Help Desk ticket data and then displays a summary of each ticket  in the Bluemix application.
 
 ## Automatic Deploy (and signup if necessary) to Bluemix
-Give it a try! Click the button below to fork into IBM DevOps Services and deploy your own copy of this application on Bluemix. Not signed up for  Bluemix already ? No worries, the 
+Give it a try! Click the button below  and follow the prompts to fork into IBM DevOps Services and deploy your own copy of this application on Bluemix. Not signed up for  Bluemix already ? No worries, the 
 button below works for new Bluemix users as well as existing ones. 
 
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/ibmecod/bluemix-spiceworks-starter)
+
+Enjoy! (note, it may take minute or so for the app to start)
+
+When you're done you can run the app by clicking on **View Your App** or look at the source code by clicking on **Edit Code**
+![Alt text](deployed1.png "Optional title")
+
+___
 
 
 ## Manual deploy (not necessary if you clicked on _Automatic Deploy_ above)
@@ -38,6 +45,7 @@ button below works for new Bluemix users as well as existing ones.
  
 6. Access the running application using the URL `<application-name>`.mybluemix.net where `<application-name>` is the name you used in step 3. The welcome page will have instructions about integrating this app into Spiceworks Developer Edition
 
+___
 
 ## Deploy into Spiceworks Developer Edition
 
